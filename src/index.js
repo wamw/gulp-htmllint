@@ -55,7 +55,7 @@ module.exports = function(options) {
 		cb(null, file);
 	}, function(cb) {
 		if (out.length > 0) {
-			gutil.log(out.join('\n'));
+			this.emit('error', new gutil.PluginError('gulp-htmllint', out.join('\n')));
 		}
 
 		cb();
